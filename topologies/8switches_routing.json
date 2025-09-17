@@ -7,14 +7,18 @@
                     "customer_provider_peer": ["h1"]
                     },
                 "h2" : {
-                    "customer": ["s2", "s3", "s4"],
-                    "customer_provider_peer": ["s2", "s3", "s4"]
+                    "customer": ["h2"],
+                    "customer_provider_peer": ["h2"]
                     },
                 "h3" : {
                     "customer": ["s2", "s3", "s4"],
                     "customer_provider_peer": ["s2", "s3", "s4"]
                     },
                 "h4" : {
+                    "customer": ["s2", "s3", "s4"],
+                    "customer_provider_peer": ["s2", "s3", "s4"]
+                    },
+                "h5" : {
                     "customer": ["s2", "s3", "s4"],
                     "customer_provider_peer": ["s2", "s3", "s4"]
                     }
@@ -32,14 +36,18 @@
                     "customer_provider_peer": ["s1"]
                 },
                 "h2" : {
-                    "customer": ["s5"],
-                    "customer_provider_peer": ["s5"]
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
                 },
                 "h3" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 },
                 "h4" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                },
+                "h5" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 }
@@ -56,14 +64,18 @@
                     "customer_provider_peer": ["s1"]
                 },
                 "h2" : {
-                    "customer": ["s5"],
-                    "customer_provider_peer": ["s5"]
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
                 },
                 "h3" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 },
                 "h4" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                },
+                "h5" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 }
@@ -80,14 +92,18 @@
                     "customer_provider_peer": ["s1"]
                 },
                 "h2" : {
-                    "customer": ["s5"],
-                    "customer_provider_peer": ["s5"]
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
                 },
                 "h3" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 },
                 "h4" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                },
+                "h5" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 }
@@ -104,14 +120,18 @@
                     "customer_provider_peer": ["s4"]
                 },
                 "h2" : {
+                    "customer": ["s4"],
+                    "customer_provider_peer": ["s4"]
+                },
+                "h3" : {
                     "customer": ["s6"],
                     "customer_provider_peer": ["s6"]
                 },
-                "h3" : {
+                "h4" : {
                     "customer": ["s7"],
                     "customer_provider_peer": ["s7"]
                 },
-                "h4" : {
+                "h5" : {
                     "customer": ["s8"],
                     "customer_provider_peer": ["s8"]
                 }
@@ -132,14 +152,18 @@
                     "customer_provider_peer": ["s5"]
                 },
                 "h2" : {
-                    "customer": ["h2"],
-                    "customer_provider_peer": ["h2"]
-                },
-                "h3" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 },
+                "h3" : {
+                    "customer": ["h3"],
+                    "customer_provider_peer": ["h3"]
+                },
                 "h4" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                },
+                "h5" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 }
@@ -159,10 +183,14 @@
                     "customer_provider_peer": ["s5"]
                 },
                 "h3" : {
-                    "customer": ["h3"],
-                    "customer_provider_peer": ["h3"]
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
                 },
                 "h4" : {
+                    "customer": ["h4"],
+                    "customer_provider_peer": ["h4"]
+                },
+                "h5" : {
                     "customer": ["s5"],
                     "customer_provider_peer": ["s5"]
                 }
@@ -186,8 +214,12 @@
                     "customer_provider_peer": ["s5"]
                 },
                 "h4" : {
-                    "customer": ["h4"],
-                    "customer_provider_peer": ["h4"]
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                },
+                "h5" : {
+                    "customer": ["h5"],
+                    "customer_provider_peer": ["h5"]
                 }
             },
             "bgp": {
