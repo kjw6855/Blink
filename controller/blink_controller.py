@@ -143,11 +143,14 @@ while True:
 
             for host, nh in routing_info['switches'][sw_name]['prefixes'].items():
                 host_prefix = topo.get_host_ip(host)+'/24'
+                flow_id = mapping_dic[host]
+                if host != 'h1':
+                    flow_id = mapping_dic['h2']
 
                 if "customer" in nh and len(nh["customer"]) > 0:
                     # Add the set_meta forwarding rule for the <prefix,customer> tuple
                     add_entry_fwtable(sock, 'meta_fwtable', 'set_meta', \
-                        [str(host_prefix), 0], [mapping_dic[host]*2, \
+                        [str(host_prefix), 0], [flow_id*2, \
                         0 if len(nh["customer"]) == 1 else 1,\
                         mapping_dic[nh["customer"][0]]])
 
@@ -164,7 +167,7 @@ while True:
                 # Add the set_meta forwarding rule for the <prefix,customer_provider_peer> tuple
                 if "customer_provider_peer" in nh and len(nh["customer_provider_peer"]) > 0:
                     add_entry_fwtable(sock, 'meta_fwtable', 'set_meta', \
-                        [str(host_prefix), 1], [mapping_dic[host]*2+1, \
+                        [str(host_prefix), 1], [flow_id*2+1, \
                         0 if len(nh["customer_provider_peer"]) == 1 else 1, \
                         mapping_dic[nh["customer_provider_peer"][0]]])
 

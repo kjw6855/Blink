@@ -73,7 +73,7 @@ control ingress(inout Parsed_packet pp,
     * Mark packet to drop
     */
     action _drop() {
-        mark_to_drop();
+        mark_to_drop(standard_metadata);
     }
 
     /**

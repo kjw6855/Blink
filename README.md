@@ -34,7 +34,18 @@ H1+----+S1+-----+S3+-----+S5+----+H2
           +-----+S4+-----+
 ```
 
-There are other options in the `json` file (such as where to find the p4 program), but you do not need to modify them for our simple example. 
+Test with 8switches:
+```
+          +-----+S2+-----+  +----+S6+----+H2
+          |              |  |
+          |              |  |
+H1+----+S1+-----+S3+-----+S5+----+S7+----+H3
+          |              |  |
+          |              |  |
+          +-----+S4+-----+  +----+S8+----+H4
+```
+
+There are other options in the `json` file (such as where to find the p4 program), but you do not need to modify them for our simple example.
 
 
 Now, follow these instructions to create a mininet network with the topology above and run `main.p4` in the `p4_code` directory :
@@ -58,7 +69,7 @@ typing `xterm h1` in the CLI, or by using the `mx` command that comes already in
    ```bash
    mx h1
    ```
-   
+
 4. Close all the host-terminals and type `quit` to leave the mininet CLI and clean the network.
    ```bash
    mininet> quit
@@ -82,7 +93,7 @@ To run the controller, first create the directory `log` where the log files will
 sudo python -m controller.blink_controller --port 10000 --log_dir log --log_level 20 --routing_file topologies/5switches_routing.json --threshold 31 --topo_db topology.db
 ```
 
-:exclamation: Observe that here we use a threshold of 15 (instead of 31, i.e., half of the selected flows), because we will only generate 40 flows to test Blink, otherwise the VM will be overloaded which will cause too many retransmissions unrelated to any failure. 
+:exclamation: Observe that here we use a threshold of 15 (instead of 31, i.e., half of the selected flows), because we will only generate 40 flows to test Blink, otherwise the VM will be overloaded which will cause too many retransmissions unrelated to any failure.
 
 Now, you need to make the connection between the controller and the p4 switches.
 To do that, run the following Python script:
@@ -109,9 +120,9 @@ traceroute to 10.0.5.2 (10.0.5.2), 30 hops max, 44 byte packets
  3  200.200.200.5  91.296 ms  93.079 ms  93.667 ms
  4  10.0.5.2  90.057 ms  88.994 ms  91.664 ms
  ```
- 
+
  We programmed the switches reply with source IP address 200.200.200.X with X the switch number.
- 
+
 # Testing Blink
 
 Now we will generate some TCP flows between `h1` and `h2` and then we will simulate a failure to see Blink in action.
