@@ -36,13 +36,13 @@ H1+----+S1+-----+S3+-----+S5+----+H2
 
 Test with 8switches:
 ```
-          +-----+S2+-----+  +----+S6+----+H2
-          |              |  |
-          |              |  |
-H1+----+S1+-----+S3+-----+S5+----+S7+----+H3
-          |              |  |
-          |              |  |
-          +-----+S4+-----+  +----+S8+----+H4
+          +-----+S2+-----+  +----+S6+----+H3
+H1+----+  |              |  |
+       |  |              |  |
+       +S1+-----+S3+-----+S5+----+S7+----+H4
+       |  |              |  |
+H2+----+  |              |  |
+          +-----+S4+-----+  +----+S8+----+H5
 ```
 
 There are other options in the `json` file (such as where to find the p4 program), but you do not need to modify them for our simple example.
