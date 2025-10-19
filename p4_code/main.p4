@@ -122,7 +122,7 @@ control ingress(inout Parsed_packet pp,
     /**
     * Set output port and destination MAC address based on port ID
     */
-    action set_nh(bit<9> port, EthernetAddress smac, EthernetAddress dmac) {
+    action set_nh(Port_t port, EthernetAddress smac, EthernetAddress dmac) {
         standard_metadata.egress_spec = port;
         pp.ethernet.srcAddr = smac;
         pp.ethernet.dstAddr = dmac;
@@ -473,6 +473,9 @@ control computeChecksum(inout Parsed_packet pp, inout custom_metadata_t meta) {
 control DeparserImpl(packet_out packet, in Parsed_packet pp) {
     apply {
         packet.emit(pp.ethernet);
+#if DPSAN_REPORT
+        packet.emit(pp.dpsan_report);
+#endif
         packet.emit(pp.ipv4_icmp);
         packet.emit(pp.icmp);
         packet.emit(pp.ipv4);

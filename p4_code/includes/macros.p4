@@ -31,3 +31,6 @@
 // Macro used to reply to traceroutes
 #define IP_ICMP_PROTO 1
 #define ICMP_TTL_EXPIRED 11
+
+// DPSAN
+#define NUM_REGISTERS 21

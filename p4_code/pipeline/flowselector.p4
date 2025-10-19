@@ -39,6 +39,17 @@ control flowselector(inout Parsed_packet pp,
     bit<1> flowselector_correctness_tmp;
     bit<6> correctness_tmp;
 
+#if DEBUG_P4
+    table debug_fs {
+        key = {
+            standard_metadata.ingress_port: exact;
+            flowselector_index : exact;
+            custom_metadata.id : exact;
+        }
+        actions = {}
+    }
+#endif
+
     apply {
 
         #include "sliding_window.p4"
@@ -57,7 +68,18 @@ control flowselector(inout Parsed_packet pp,
         custom_metadata.flowselector_cellid = cell_id;
 
         flowselector_index = (custom_metadata.id * FLOWSELECTOR_NBFLOWS) + cell_id;
+#if DEBUG_P4
+        debug_fs.apply();
+#endif
         flowselector_key.read(curflow_key, flowselector_index);
+#if DPSAN_REPORT
+        pp.ethernet.etherType = ETHERTYPE_DPSAN_WIP_IPV4;
+        pp.dpsan_report[0].setValid();
+        pp.dpsan_report[0].regId = 0xD;
+        pp.dpsan_report[0].hasRead = 1;
+        pp.dpsan_report[0].portId = (Port_t)standard_metadata.ingress_port;
+        pp.dpsan_report[0].addr = (bit<64>)flowselector_index;
+#endif
         flowselector_ts.read(curflow_ts, flowselector_index);
         flowselector_nep.read(curflow_nep, flowselector_index);
 

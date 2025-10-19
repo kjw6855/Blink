@@ -1,5 +1,6 @@
 typedef bit<48>  EthernetAddress;
 typedef bit<32>  IPv4Address;
+typedef bit<9>   Port_t;
 
 // standard Ethernet header
 header Ethernet_h {
@@ -7,6 +8,18 @@ header Ethernet_h {
     EthernetAddress srcAddr;
     bit<16>         etherType;
 }
+
+#if DPSAN_REPORT
+header Dpsan_report_h {
+    bit<16>         regId;
+    Port_t          portId;
+    bit<1>          hasRead;
+    bit<1>          hasWrite;
+    bit<1>          bos;        // like MPLS bos
+    bit<4>          pad0;
+    bit<64>         addr;
+}
+#endif
 
 // IPv4 header without options
 header IPv4_h {
@@ -52,10 +65,14 @@ header ICMP_h {
    bit<32> unused;
 }
 
+
 struct Parsed_packet {
-    Ethernet_h  ethernet;
-    IPv4_h       ipv4_icmp;
-    ICMP_h      icmp;
-    IPv4_h      ipv4;
-    TCP_h       tcp;
+    Ethernet_h          ethernet;
+#if DPSAN_REPORT
+    Dpsan_report_h[21]  dpsan_report;
+#endif
+    IPv4_h              ipv4_icmp;
+    ICMP_h              icmp;
+    IPv4_h              ipv4;
+    TCP_h               tcp;
 }
