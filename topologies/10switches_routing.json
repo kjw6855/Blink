@@ -1,0 +1,286 @@
+{
+    "switches": {
+        "s1": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["h1"],
+                    "customer_provider_peer": ["h1"]
+                    },
+                "h2" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    },
+                "h3" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    },
+                "h4" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    },
+                "h5" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    }
+            },
+            "bgp":{
+                "s3":"customer"
+            }
+        },
+        "s2": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    },
+                "h2" : {
+                    "customer": ["h2"],
+                    "customer_provider_peer": ["h2"]
+                    },
+                "h3" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    },
+                "h4" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    },
+                "h5" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                    }
+            },
+            "bgp":{
+                "s3":"customer"
+            }
+        },
+        "s3": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
+                    },
+                "h2" : {
+                    "customer": ["s2"],
+                    "customer_provider_peer": ["s2"]
+                    },
+                "h3" : {
+                    "customer": ["s4", "s5", "s6"],
+                    "customer_provider_peer": ["s4", "s5", "s6"]
+                    },
+                "h4" : {
+                    "customer": ["s4", "s5", "s6"],
+                    "customer_provider_peer": ["s4", "s5", "s6"]
+                    },
+                "h5" : {
+                    "customer": ["s4", "s5", "s6"],
+                    "customer_provider_peer": ["s4", "s5", "s6"]
+                    }
+            },
+            "bgp":{
+                "s1":"provider",
+                "s2":"provider",
+                "s4":"customer",
+                "s5":"customer",
+                "s6":"customer"
+            }
+        },
+        "s4": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                },
+                "h2" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                },
+                "h3" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h4" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h5" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                }
+            },
+            "bgp":{
+                "s3":"provider",
+                "s7":"customer"
+            }
+        },
+        "s5": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                },
+                "h2" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                },
+                "h3" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h4" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h5" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                }
+            },
+            "bgp":{
+                "s3":"provider",
+                "s7":"customer"
+            }
+        },
+        "s6": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                },
+                "h2" : {
+                    "customer": ["s3"],
+                    "customer_provider_peer": ["s3"]
+                },
+                "h3" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h4" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h5" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                }
+            },
+            "bgp":{
+                "s3":"provider",
+                "s7":"customer"
+            }
+        },
+        "s7": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s6"],
+                    "customer_provider_peer": ["s6"]
+                },
+                "h2" : {
+                    "customer": ["s6"],
+                    "customer_provider_peer": ["s6"]
+                },
+                "h3" : {
+                    "customer": ["s8"],
+                    "customer_provider_peer": ["s8"]
+                },
+                "h4" : {
+                    "customer": ["s9"],
+                    "customer_provider_peer": ["s9"]
+                },
+                "h5" : {
+                    "customer": ["s10"],
+                    "customer_provider_peer": ["s10"]
+                }
+            },
+            "bgp":{
+                "s4":"provider",
+                "s5":"provider",
+                "s6":"provider",
+                "s8":"customer",
+                "s9":"customer",
+                "s10":"customer"
+            }
+        },
+        "s8": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h2" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h3" : {
+                    "customer": ["h3"],
+                    "customer_provider_peer": ["h3"]
+                },
+                "h4" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h5" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                }
+            },
+            "bgp": {
+                "s7":"provider"
+            }
+        },
+        "s9": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h2" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h3" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h4" : {
+                    "customer": ["h4"],
+                    "customer_provider_peer": ["h4"]
+                },
+                "h5" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                }
+            },
+            "bgp": {
+                "s7":"provider"
+            }
+        },
+        "s10": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h2" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h3" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h4" : {
+                    "customer": ["s7"],
+                    "customer_provider_peer": ["s7"]
+                },
+                "h5" : {
+                    "customer": ["h5"],
+                    "customer_provider_peer": ["h5"]
+                }
+            },
+            "bgp": {
+                "s7":"provider"
+            }
+        }
+    }
+}

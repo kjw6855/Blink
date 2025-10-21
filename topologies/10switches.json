@@ -2,7 +2,7 @@
   "program": "/home/p4/Blink/p4_code/main.p4",
   "switch": "simple_switch",
   "compiler": "p4c",
-  "options": "--target bmv2 --arch v1model --std p4-16",
+  "options": "--target bmv2 --arch v1model --std p4-16 -DDEBUG_P4",
   "switch_cli": "simple_switch_CLI",
   "cli": true,
   "pcap_dump": true,
@@ -26,19 +26,21 @@
   "topology": {
     "assignment_strategy": "mixed",
     "links": [["h1", "s1"],
-    ["h2", "s1"],
-    ["s1", "s2"],
+    ["h2", "s2"],
     ["s1", "s3"],
-    ["s1", "s4"],
-    ["s2", "s5"],
+    ["s2", "s3"],
+    ["s3", "s4"],
     ["s3", "s5"],
-    ["s4", "s5"],
-    ["s5", "s6"],
+    ["s3", "s6"],
+    ["s4", "s7"],
     ["s5", "s7"],
-    ["s5", "s8"],
-    ["s6", "h3"],
-    ["s7", "h4"],
-    ["s8", "h5"]],
+    ["s6", "s7"],
+    ["s7", "s8"],
+    ["s7", "s9"],
+    ["s7", "s10"],
+    ["s8", "h3"],
+    ["s9", "h4"],
+    ["s10", "h5"]],
     "hosts": {
       "h1": {},
       "h2": {},
@@ -48,38 +50,44 @@
     },
     "switches": {
       "s1": {
-          "s2":"customer",
-          "s3":"customer",
-          "s4":"customer"
+          "s3":"customer"
       },
       "s2": {
-          "s1":"provider",
-          "s5":"customer"
+          "s3":"customer"
       },
       "s3": {
-          "s1":"provider",
-          "s5":"customer"
+          "s4":"customer",
+          "s5":"customer",
+          "s6":"customer"
       },
       "s4": {
-          "s1":"provider",
-          "s5":"customer"
+          "s3":"provider",
+          "s7":"customer"
       },
       "s5": {
-          "s2":"provider",
           "s3":"provider",
-          "s4":"provider",
-          "s6":"customer",
-          "s7":"customer",
-          "s8":"customer"
+          "s7":"customer"
       },
       "s6": {
-          "s5":"provider"
+          "s3":"provider",
+          "s7":"customer"
       },
       "s7": {
-          "s5":"provider"
+          "s4":"provider",
+          "s5":"provider",
+          "s6":"provider",
+          "s8":"customer",
+          "s9":"customer",
+          "s10":"customer"
       },
       "s8": {
-          "s5":"provider"
+          "s7":"provider"
+      },
+      "s9": {
+          "s7":"provider"
+      },
+      "s10": {
+          "s7":"provider"
       }
     }
   }
