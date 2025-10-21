@@ -166,8 +166,8 @@ class BlinkController:
             prefix = self.topo.get_host_ip(host)+'/24'
 
             flow_id = self.mapping_dic[host]
-            if host != 'h1':
-                flow_id = self.mapping_dic['h2']
+            #if host != 'h1':
+            #    flow_id = self.mapping_dic['h2']
             for id_prefix in [flow_id*2, flow_id*2+1]:
 
                 sw = []

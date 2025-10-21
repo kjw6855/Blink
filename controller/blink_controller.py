@@ -144,8 +144,8 @@ while True:
             for host, nh in routing_info['switches'][sw_name]['prefixes'].items():
                 host_prefix = topo.get_host_ip(host)+'/24'
                 flow_id = mapping_dic[host]
-                if host != 'h1':
-                    flow_id = mapping_dic['h2']
+                #if host != 'h1':
+                #    flow_id = mapping_dic['h2']
 
                 if "customer" in nh and len(nh["customer"]) > 0:
                     # Add the set_meta forwarding rule for the <prefix,customer> tuple
